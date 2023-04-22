@@ -161,15 +161,27 @@ app.get('/login-user/change-password/:username/:newpassword', async(req, res) =>
 // --------------- recommendations routes ---------------
 // advanced query 1
 // change this to call the stored procedure instead!!!
-app.get('/recommend:userid', async(req, res) => {
+app.get('/recommend/:userid', async(req, res) => {
   try {
-    const tabsQuery = pool.query(`SELECT RecipeId, RecipeName, Time, NumberOfSteps, GROUP_CONCAT(Instruction 
-                                  ORDER BY OrderNumber ASC 
-                                  SEPARATOR '\n ' ) AS Instructions
-                                  FROM Recipes r JOIN Steps s ON (r.RecipeId = s.Instruct)
-                                  GROUP BY r.RecipeId
-                                  ORDER BY RAND()
-                                  LIMIT 20;`);
+    const tabsQuery = pool.query(`(SELECT RecipeName, Time, NumberOfSteps, GROUP_CONCAT(Instruction 
+      ORDER BY OrderNumber ASC 
+      SEPARATOR '\n ' ) AS Instructions
+      FROM Recipes r JOIN Steps s ON (r.RecipeId = s.Instruct)
+      WHERE
+      r.Time < 25 AND r.NumberOfSteps < 9 AND RecipeName LIKE (CONCAT('%', (SELECT IngredientName FROM Inventory WHERE UserId = ${req.params.userid} ORDER BY RAND() LIMIT 1), '%'))
+      GROUP BY r.RecipeId
+      ORDER BY RAND()
+      LIMIT 15)
+      UNION 
+      (SELECT RecipeName, Time, NumberOfSteps, GROUP_CONCAT(Instruction 
+        ORDER BY OrderNumber ASC 
+        SEPARATOR '\n ' ) AS Instructions
+        FROM Recipes r JOIN Steps s ON (r.RecipeId = s.Instruct)
+        WHERE
+        r.Time < 15 AND r.NumberOfSteps < 6
+        GROUP BY r.RecipeId
+        ORDER BY RAND()
+        LIMIT 15) LIMIT 15`);
     console.log('Inside recommendation query');
     let x = await tabsQuery;
     console.log(tabsQuery);

@@ -161,7 +161,7 @@ app.get('/login-user/change-password/:username/:newpassword', async(req, res) =>
 // --------------- recommendations routes ---------------
 // advanced query 1
 // change this to call the stored procedure instead!!!
-app.get('/recommend', async(req, res) => {
+app.get('/recommend:userid', async(req, res) => {
   try {
     const tabsQuery = pool.query(`SELECT RecipeId, RecipeName, Time, NumberOfSteps, GROUP_CONCAT(Instruction 
                                   ORDER BY OrderNumber ASC 

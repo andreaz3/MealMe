@@ -11,7 +11,7 @@ const Recommendations = ({token}) =>{
 
   useEffect(()=> {
     if (loaded) {
-      axios.get(`http://localhost:8080/recommend`, {
+      axios.get(`http://localhost:8080/recommend/${token}`, {
         mode: "no-cors"
       }).then((response) => {
         setRecipes(response.data);
@@ -30,7 +30,7 @@ const Recommendations = ({token}) =>{
       Array.from(recipes).map((recipe) => {
         if (recipe.RecipeName !== "RecipeName") {
           return(<>
-            <Recipe key={recipe.RecipeId} recipeid={recipe.RecipeId} name={recipe.RecipeName} time={recipe.Time} steps={recipe.NumberOfSteps} userid={token}></Recipe>
+            <Recipe key={recipe.RecipeId} recipeid={recipe.RecipeId} name={recipe.RecipeName} time={recipe.Time} steps={recipe.NumberOfSteps} userid={token} instruction={recipe.Instructions}></Recipe>
           </>);
         }
         return(<></>)

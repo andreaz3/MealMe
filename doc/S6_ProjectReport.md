@@ -36,7 +36,17 @@ Our advanced database programs complemented our application by providing an effi
 ## 7. Technical Challenges
 > Each team member should describe one technical challenge that the team encountered.  This should be sufficiently detailed such that another future team could use this as helpful advice if they were to start a similar project or where to maintain your project.
 
-INSERT ANSWER
+**Andrea**: One technical challenge we encountered was setting up the datatables. Our estimation for the VARCHAR count for recipe titles and ingredients were too low, which caused an inconsistency in our database when we tried to query. In addition, some of the files were really large, which results in corruption if we opened the file before uploading. We realized this later in the process, and had to modify the schema of the tables and reupload the data. <br>
+
+
+**Lina**: One technical challenge we encountered was running the repository on our local machines. While we were able to pull the repository from github, some packages were still missing/uninstalled despite running npm commands in the terminal to install it. An example was the program not detecting npm concurrently or the react packages. This prevented us from being able to run the website on our local servers right away. <br>
+
+
+**Hanning**:  One technical challenge we encountered was importing the data. When we first imported the Time attribute of the recipes, it showed a random long VARCHAR instead of INT.  It took quite a long time to fix it, before we could write and execute our queries. <br>
+
+
+**Kaitlyn**:  One technical challenge we encountered while developing our application was connecting our GCP database instance to our express server. Although there were some tutorials/examples provided by the TAs, we had to try out different methods as the database wasn’t connecting properly to the app, and the final process to set it up ended up a little tedious (we had to download google-cloud-sdk, setup public keys, etc…). Replicating these steps to get everyone’s machines to connect also ended up a little tedious as each person encountered small issues, but we got it to work in the end. 
+
 
 ## 8. Any Other Changes
 > Are there other things that changed comparing the final application with the original proposal?

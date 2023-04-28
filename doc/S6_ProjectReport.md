@@ -14,7 +14,7 @@ The application successfully offers recipe recommendations based on the user’s
 ## 3. Changes in Schema
 > Discuss if you changed the schema or source of the data for your application
 
-For our schema, we increased VARCHAR from 50 to 200 because we needed to store longer text values in our database tables.
+For our schema, we initally set all VARCHAR columns to 50, however we realized we needed more space to store longer strings of text values into many of our database tables, so we increased VARCHAR from 50 to 200. In terms of our data, we did not change the source of the data for our application. It is still the Foods.com dataset from Kaggle that is described in our proposal. 
 
 ## 4. Changes in Implementation 
 > Discuss what you change to your ER diagram and/or your table implementations. What are some differences between the original design and the final design? Why? What do you think is a more suitable design? 
@@ -51,7 +51,7 @@ Our advanced database programs complemented our application by providing an effi
 ## 8. Any Other Changes
 > Are there other things that changed comparing the final application with the original proposal?
 
-Aside from some slight changes in direction regarding the recipe randomizer, allowing users to create and manage their own recipes,  and increasing the VARCHAR count (as mentioned in points 1 and 3 of this report), all other components and functionalities suggested in our original proposal translated over to our final application
+Aside from some slight changes in direction regarding the recipe randomizer, allowing users to create and manage their own recipes,  and increasing the VARCHAR count (as mentioned in points 1 and 3 of this report), all other components and functionalities suggested in our original proposal translated over to our final application.
 
 ## 9. Future Development
 > Describe future work that you think, other than the interface, that the application can improve on

@@ -21,7 +21,7 @@
 | ----------- | ---------------------- |
 |  Title      |     MealMe       |
 | System URL  |          |
-| Video Link  |           |
+| Video Link  |      https://mediaspace.illinois.edu/media/t/1_gopmuvhd     |
 
 ## Project Summary
 

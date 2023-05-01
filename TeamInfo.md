@@ -20,7 +20,7 @@
 |   Info      |        Description     |
 | ----------- | ---------------------- |
 |  Title      |     MealMe       |
-| System URL  |          |
+| System URL  |        https://github.com/cs411-alawini/sp23-cs411-team020-TheMiniLegends  |
 | Video Link  |      https://mediaspace.illinois.edu/media/t/1_gopmuvhd     |
 
 ## Project Summary
